@@ -10,4 +10,3 @@ Inside you will find:
     d. Assignment 4 - Heap Implementation and To-Do List
     e. Assignment 5 - HashTable Implementation of a Concordance
   2. The Assignment instructions for each project
-  
