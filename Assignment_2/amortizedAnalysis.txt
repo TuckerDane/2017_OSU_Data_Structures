@@ -1,0 +1,72 @@
+//************************************************************************************************************************
+//
+//	CS261- Assignment 2 - amortizedAnalysis.txt
+//
+//	Name:		Tucker Dane Walker
+//	Date:		08 July 2017
+//	Description:	Amortized Analysis Questions
+//
+//***********************************************************************************************************************/
+
+1.  	How many cost units are spent in the entire process of performing 32 consecutive push operations on an empty 
+	array which starts out at capacity 8, assuming that the array will double in capacity each time a new item is
+	added to an already full dynamic array? As N (ie. the number of pushes) grows large, under this strategy for
+	resizing, what is the big-oh complexity for a push? 2. How many cost units are spent in the entire process of 
+	performing 32 consecutive push operations on an empty array which starts out?
+
+							    |  cost  |	cap  |	size |
+					--------------------+--------+-------+-------+
+					initialization	    |	0    |	8    |	0    |
+					fill array	    |	8    |	8    |	8    |
+					reallocate	    |	8    |	16   |	8    |
+					fill array	    |	8    |	16   |	16   |
+					reallocate	    |	16   |	32   |	16   |
+					fill array	    |	16   |	32   |	32   |
+					--------------------+--------+-------+-------+
+
+	Result:			N = 56 Cost Units
+	Big Oh Complexity:	Each push() takes 1 cost unit when re-allocation is not required. This is an example
+				of O(1). When re-allocation is required, push() takes n cost units. This is an example
+				of O(n). The average execution time for 32 push() operations in this example is 56/32
+				or 1.75. The Amortized Constant Execution time would be considered O(1)+.
+
+2.  	How many cost units are spent in the entire process of performing 32 consecutive push operations on an empty
+	array which starts out at capacity 8, assuming that the array will grow by a constant 2 spaces each time a new
+	item is added to an already full dynamic array? As N (ie. the number of pushes) grows large, under this strategy
+	for resizing, what is the big-oh complexity for a push?
+
+							    |  cost  |	cap  |	size |
+					--------------------+--------+-------+-------+
+					initialization	    |	0    |	8    |	0    |
+					fill array	    |	8    |	8    |	8    |
+					reallocate	    |	8    |	10   |	8    |
+					fill array	    |	2    |	10   |	10   |
+					reallocate	    |	10   |	12   |	10   |
+					fill array	    |	2    |	12   |	12   |
+					reallocate	    |	12   |	14   |  12   |
+					fill array	    |	2    |	14   |	14   |
+					reallocate	    |	14   |	16   |  14   |
+					fill array	    |	2    |	16   |	16   |
+					reallocate	    |	16   |	18   |  16   |
+					fill array	    |	2    |	18   |	18   |
+					reallocate	    |	18   |	20   |  18   |
+					fill array	    |	2    |	20   |	20   |
+					reallocate	    |	20   |	22   |  20   |
+					fill array	    |	2    |	22   |	22   |
+					reallocate	    |	22   |	24   |  22   |
+					fill array	    |	2    |	24   |	24   |
+					reallocate	    |	24   |	26   |  24   |
+					fill array	    |	2    |	26   |	26   |
+					reallocate	    |	26   |	28   |  26   |
+					fill array	    |	2    |	28   |	28   |
+					reallocate	    |	28   |	30   |  28   |
+					fill array	    |	2    |	30   |	30   |
+					reallocate	    |	30   |	32   |  30   |
+					fill array	    |	2    |	32   |	32   |
+					--------------------+--------+-------+-------+
+
+	Result:			N = 260 Cost Units
+	Big Oh Complexity:	Each push() takes 1 cost unit when re-allocation is not required. This is an example
+				of O(1). When re-allocation is required, push() takes n cost units. This is an example
+				of O(n). The average execution time for 32 push() operations in this example is 260/32
+				or 8.125. The Amortized Constant Execution time would be considered O(1)+.
