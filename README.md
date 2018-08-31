@@ -1,8 +1,8 @@
-# 2017_OSU_Data_Structures
+# 2017 OSU Data Structures
 
 Projects from my Data Structures Class at Oregon State University
 
-Inside you will find:
+## Contents
 
   1. Code written for each project listed
   
